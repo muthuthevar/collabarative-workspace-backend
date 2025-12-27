@@ -13,6 +13,10 @@
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^25.0.3",
+    "@types/uuid": "^10.0.0",
     "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "uuid": "^13.0.0"
   }
 }
