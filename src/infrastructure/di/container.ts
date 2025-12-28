@@ -2,8 +2,8 @@
 import { JwtAuthService } from "../../adapters/services/JwtAuthService.js";
 import { RedisCacheService } from "../../adapters/services/RedisCacheService.js";
 import { MockEmailService } from "../../adapters/services/MockEmailService.js";
-import { ConsoleLogger } from "../../adapters/services/ConsoleLogger.js";
-import { MockWebSocketService } from "../../adapters/services/MockWebSocketService.js";
+import { WinstonLogger } from "../../adapters/services/WinstonLogger.js";
+import { SocketIOWebSocketService } from "../../adapters/services/SocketIOWebSocketService.js";
 import { MockJobQueue } from "../../adapters/services/MockJobQueue.js";
 
 // Repositories
@@ -56,11 +56,11 @@ import { AuthMiddleware } from "../http/middleware/authMiddleware.js";
 
 export class Container {
   // Services
-  public logger = new ConsoleLogger();
+  public logger = new WinstonLogger();
   public authService = new JwtAuthService();
   public cacheService = new RedisCacheService();
   public emailService = new MockEmailService(this.logger);
-  public webSocketService = new MockWebSocketService(this.logger);
+  public webSocketService = new SocketIOWebSocketService(this.logger);
   public jobQueue = new MockJobQueue(this.logger);
 
   // Repositories
